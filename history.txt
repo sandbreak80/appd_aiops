@@ -1,0 +1,231 @@
+    1  sudo reboot
+    2  sudo apt-get update
+    3  sudo apt-get install bcmwl-kernel-source
+    4  lsusb
+    5  sudo lshw -C network
+    6  gh repo clone Appdynamics/partner-aiops
+    7  git clone https://github.com/Appdynamics/partner-aiops.git
+    8  sudo apt install git
+    9  git clone https://github.com/Appdynamics/partner-aiops.git
+   10  ls
+   11  cd Downloads/
+   12  ls
+   13  unzip partner-aiops-master.zip 
+   14  ls
+   15  ls -al
+   16  cd partner-aiops-master/
+   17  ls
+   18  cd k8/
+   19  ls
+   20  sudo su
+   21  ls
+   22  sudo apt-get update -y && sudo apt-update -y
+   23  sudo apt-get update -y && sudo apt-get upgrade -y
+   24  sudo apt-get remove docker docker-engine docker.io containerd runc
+   25  sudo apt-get update
+   26  sudo apt-get install     apt-transport-https     ca-certificates     curl     gnupg-agent     software-properties-common
+   27  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   28  sudo apt-key fingerprint 0EBFCD88
+   29  sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   30     $(lsb_release -cs) \
+   31     stable"
+   32  sudo apt-get update
+   33  sudo apt-get install docker-ce docker-ce-cli containerd.io
+   34  sudo docker run hello-world
+   35  sudo groupadd docker
+   36  sudo usermod -aG docker $USER
+   37  exit
+   38  newgrp docker 
+   39  docker run hello-world
+   40  sudo systemctl enable docker
+   41  curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+   42  chmod +x ./kubectl
+   43  sudo mv ./kubectl /usr/local/bin/kubectl
+   44  kubectl version --client
+   45  kubectl get namespace
+   46  sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2 curl
+   47  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+   48  echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+   49  sudo apt-get update
+   50  sudo apt-get install -y kubectl
+   51  kubectl get namespace
+   52  sudo apt-get install kubelet kubeadm kubectl kubernetes-cni docker.io swapspac -y
+   53  sudo apt-get install kubelet kubeadm kubectl kubernetes-cni docker.io
+   54  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
+   55  sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
+   56  sudo su
+   57  ls
+   58  cd Downloads/
+   59  ls
+   60  cd partner-aiops-master/
+   61  ls
+   62  cd k8/
+   63  ls
+   64  ./installer_second_user.sh 
+   65  kubectl get namespace
+   66  kubectl create namespace teastore
+   67  kubectl create -f https://github.com/DescartesResearch/TeaStore/blob/master/examples/kubernetes/teastore-clusterip.yaml -n teastore
+   68  kubectl create -f https://raw.githubusercontent.com/DescartesResearch/TeaStore/master/examples/kubernetes/teastore-all.yaml -n teastore
+   69  alias k=kubectl
+   70  k get pods -n teastore
+   71  watch k get pods -n teastore
+   72  watch kubectl get pods -n teastore
+   73  kubectl delete namespace teastore
+   74  k create namespace ts
+   75  kubectl create -f https://raw.githubusercontent.com/DescartesResearch/TeaStore/master/examples/kubernetes/teastore-clusterip_v16.yaml -n ts
+   76  kubectl delete namespace ts
+   77  kubectl create namespace tea
+   78  kubectl create -f https://github.com/DescartesResearch/TeaStore/blob/master/examples/kubernetes/teastore-clusterip.yaml -n tea
+   79  kubectl version
+   80  sudo rm /usr/local/bin/kubectl
+   81  kubectl version
+   82  sudo su
+   83  ./installer_second_user.sh 
+   84  kubectl get namespace
+   85  sudo su
+   86  ./installer_second_user.sh 
+   87  kubectl get namespace
+   88  kubeadm reset
+   89  sudo su
+   90  sudo rm -rf ~/.kube
+   91  kubectl
+   92  docker
+   93  sudo apt-get purge docker-engine
+   94  sudo apt-get purge docker
+   95  sudo apt-get purge docker-ce
+   96  sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
+   97  sudo rm -rf /var/lib/docker /etc/docker
+   98  sudo rm /etc/apparmor.d/docker
+   99  sudo groupdel docker
+  100  sudo rm -rf /var/run/docker.sock
+  101  sudo apt-get autoremove -y --purge kubelet kubeadm kubectl kubernetes-cni docker.io swapspac
+  102  sudo apt-get autoremove -y --purge kubelet kubeadm kubectl kubernetes-cni docker.io
+  103  sudo reboot
+  104  cd Downloads/
+  105  ls
+  106  cd partner-aiops-master/
+  107  ls
+  108  cd k8/
+  109  sudo su
+  110  ./installer_second_user.sh 
+  111  ls
+  112  kubectl
+  113  apt-get install kubelet kubeadm kubectl kubernetes-cni docker.io
+  114  sudo su
+  115  sudo apt-get remove docker docker-engine docker.io containerd runc
+  116  sudo apt-get update
+  117  sudo apt-get install     apt-transport-https     ca-certificates     curl     gnupg-agent     software-properties-common
+  118  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  119  sudo apt-key fingerprint 0EBFCD88
+  120  sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+  121     $(lsb_release -cs) \
+  122     stable"
+  123  sudo apt-get update
+  124  sudo apt-get install docker-ce docker-ce-cli containerd.io
+  125  sudo su
+  126  kubeadm init --pod-network-cidr=10.244.0.0/16
+  127  sudo su
+  128  kubectl get namespace
+  129  sudo su
+  130  cd Downloads/
+  131  ls
+  132  cd partner-aiops-master/k8/
+  133  ls
+  134  ./installer_second_user.sh 
+  135  kubectl get namespace
+  136  kubectl version
+  137  kubectl create namespace teastore
+  138  kubectl create -f https://github.com/DescartesResearch/TeaStore/blob/master/examples/kubernetes/teastore-clusterip.yaml -n teastore
+  139  kubectl create -f https://raw.githubusercontent.com/DescartesResearch/TeaStore/master/examples/kubernetes/teastore-ribbon.yaml -n teastore
+  140  kubectl get pods -n teastore
+  141  watch kubectl get pods -n teastore
+  142  kubectl get services
+  143  kubectl get services -o wide
+  144  kubectl get services teastore -n teastore
+  145  kubectl get services teastore
+  146  kubectl get deployment teastore
+  147  kubectl get deployment teastore -n teastore
+  148  kubectl get deployments -n teastore
+  149  kubectl get deployments -n teastore -o wide
+  150  kubectl get service -n teastore -o wide
+  151  cd ../../
+  152  ls
+  153  kubectl create namespace appdynamics
+  154  unzip appdynamics-cluster-agent-alpine-linux-20.11.0.1877.zip 
+  155  ls
+  156  kubectl create -f cluster-agent-operator.yaml -n appdynamics
+  157  kubectl -n appdynamics get pods
+  158  kubectl -n appdynamics create secret generic cluster-agent-secret --from-literal=controller-key=1sbzknemvzco
+  159  kubectl create -f cluster-agent.yaml -n appdynamics
+  160  kubectl get pods -n appdynamics
+  161  watch kubectl get pods -n appdynamics
+  162  touch Dockerfile
+  163  vi Dockerfile 
+  164  docker build --build-arg NETVIZ_ZIP_PKG=/path/to/netviz-agent-pkg.zip -t appd-netviz .
+  165  sudo docker build --build-arg NETVIZ_ZIP_PKG=/path/to/netviz-agent-pkg.zip -t appd-netviz .
+  166  vi Dockerfile 
+  167  ls
+  168  sudo docker build --build-arg NETVIZ_ZIP_PKG=appd-netviz-x64-linux-20.8.0.2169.zip -t appd-netviz .
+  169  docker images
+  170  sudo docker images
+  171  sudo groupadd docker
+  172  sudo usermod -aG docker $USER
+  173  exit
+  174  docker images
+  175  sudo systemctl enable docker
+  176  swapoff -a
+  177  systemctl status kubelet
+  178  kubectl get nodes
+  179  systemctl status kubelet
+  180  newgrp docker
+  181  kubectl get pods -n teastore
+  182  kubectl get pods -n appdynamics
+  183  kubectl logs k8s-cluster-agent-66bf48f879-mwdhj -n appdynamics
+  184  kubectl get pods -n appdynamics
+  185  kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+  186  kubectl logs k8s-cluster-agent-66bf48f879-mwdhj -n appdynamics
+  187  kubectl logs k8s-cluster-agent-66bf48f879-mwdhj -n appdynamics -w
+  188  kubectl logs k8s-cluster-agent-66bf48f879-mwdhj -n appdynamics
+  189  kubectl get top pods -n teastore
+  190  kubectl top pods -n teastore
+  191  yum install bash-completion
+  192  apt-get install bash-completion
+  193  sudo apt-get install bash-completion
+  194  source /usr/share/bash-completion/bash_completion
+  195  echo 'source <(kubectl completion bash)' >>~/.bashrc
+  196  kubectl completion bash >/etc/bash_completion.d/kubectl
+  197  sudo kubectl completion bash >/etc/bash_completion.d/kubectl
+  198  sudo su
+  199  echo 'alias k=kubectl' >>~/.bashrc
+  200  echo 'complete -F __start_kubectl k' >>~/.bashrc
+  201  k get pods
+  202  alias k=kubectl
+  203  k get pods
+  204  k get namespaces
+  205  k get pods -n default
+  206  k get pods -n kube-system
+  207  k logs metrics-server-5d5c49f488-m49mn -n kube-system
+  208  k get deployment -n kube-default
+  209  k get service -n kube-default
+  210  k get service -n kube-system
+  211  k get service -n kube-system 0o wide
+  212  k edit service metric-server -n kube-system
+  213  k edit deployment metric-server -n kube-system
+  214  k edit service metrics-server -n kube-system
+  215  k edit deployment metrics-server -n kube-system
+  216  sudo apt-get install vim
+  217  k edit deployment metrics-server -n kube-system
+  218  k get pods -n kube-system
+  219  k top pods -n teastore
+  220  touch cluster-agent-instr.yaml 
+  221  vi cluster-agent-instr.yaml 
+  222  kubectl -n appdynamics create secret generic cluster-agent-secret --from-literal=controller-key=1sbzknemvzco --from-literal=api-user="kickstarter@kickstarter:p5wiodbbg35c"
+  223* 
+  224  vi cluster-agent-instr.yaml 
+  225  kubectl apply -f cluster-agent-instr.yaml 
+  226  k get pods -n appdynamics
+  227  k get pods -n teastore
+  228  watch kubectl get pods -n teastore
+  229  history
+  230  history -> history.txt
+  231  history > history.txt

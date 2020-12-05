@@ -1,0 +1,34 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: DaemonSet
+metadata:
+  name: appd-netviz-agent
+spec:
+  selector:
+    matchLabels:
+      name: appd-netviz-agent
+  template:
+    metadata:
+      name: appd-netviz-agent
+      labels:
+        name: appd-netviz-agent
+    spec:
+      hostIPC: true
+      hostNetwork: true
+      containers:
+      - name: appd-netviz-agent
+        image: store/appdynamics/netviz:4.5_centos7 # docker registry image
+        resources:
+          requests:
+            memory: "250Mi"
+            cpu: "0.5"
+          limits:
+            memory: "2Gi"
+            cpu: "1"
+        securityContext:
+          capabilities:
+            add: ["NET_RAW"]
+        ports:
+        - containerPort: 3892
+          hostPort: 3892
+          # imagePullSecrets:
+          # - name: cluster-app-secret # add the registry key, kubectl create secret ...

@@ -1,0 +1,15 @@
+apiVersion: appdynamics.com/v1alpha1
+kind: Clusteragent
+metadata:
+  name: k8s-cluster-agent
+  namespace: appdynamics
+spec:
+  appName: "local_teastore"
+  controllerUrl: "https://kickstarter.saas.appdynamics.com"
+  account: "kickstarter"
+  # docker image info
+  image: "docker.io/appdynamics/cluster-agent:latest"
+  serviceAccountName: appdynamics-cluster-agent
+  ### Uncomment the following two lines if you need pull secrets
+  #imagePullSecrets:
+  #  name: "<your-docker-pull-secret-name>"
