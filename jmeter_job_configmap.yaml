@@ -1,0 +1,42 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: jmeter-teastore-configmap
+spec:
+  schedule: "0 */2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: jmeter-pod
+            image: sandbreak80/teastore:jmeter-v1
+            imagePullPolicy: IfNotPresent
+            command: [ "/bin/sh", "-c", "/opt/apache-jmeter-5.4/bin/jmeter -n -t /opt/apache-jmeter-5.4/teastore_pod.jmx -l /opt/apache-jmeter-5.4/test_output.log -Jhostname=$(Jhostname) -Jport=$(Jport) -JnumUser=$(JnumUser) -JrampUp=$(JrampUp) -JloopCount=$(JloopCount)" ]
+            env:
+              - name: Jhostname
+                valueFrom:
+                  configMapKeyRef:
+                    name: jmeter
+                    key: Jhostname
+              - name: Jport
+                valueFrom:
+                  configMapKeyRef:
+                    name: jmeter
+                    key: Jport
+              - name: JnumUser
+                valueFrom:
+                  configMapKeyRef:
+                    name: jmeter
+                    key: JnumUser
+              - name: JrampUp
+                valueFrom:
+                  configMapKeyRef:
+                    name: jmeter
+                    key: JrampUp
+              - name: JloopCount
+                valueFrom:
+                  configMapKeyRef:
+                    name: jmeter
+                    key: JloopCount
+          restartPolicy: OnFailure

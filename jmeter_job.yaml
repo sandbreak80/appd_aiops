@@ -1,0 +1,23 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: jmeter-teastore
+spec:
+  schedule: "0 */2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: jmeter-pod
+            #image: sandbreak80/teastore:jmeter-externalport
+            image: sandbreak80/teastore:jmeter-v1
+            imagePullPolicy: IfNotPresent
+            command: [ "/bin/sh", "-c", "/opt/apache-jmeter-5.4/bin/jmeter -n -t /opt/apache-jmeter-5.4/teastore_pod.jmx -l /opt/apache-jmeter-5.4/test_output.log -Jhostname=e088586b-bhteastore-teasto-900b-1659809752.us-east-1.elb.amazonaws.com -Jport=80 -JnumUser=10 -JrampUp=60 -JloopCount=10" ]
+            envFrom:
+            - configMapRef:
+                name: jmeter
+            #args:
+            #- /bin/sh
+            #- /opt/apache-jmeter-5.4/entry.sh
+          restartPolicy: OnFailure

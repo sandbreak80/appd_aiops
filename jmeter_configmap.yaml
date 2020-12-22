@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jmeter
+  namespace: bh-teastore 
+data:
+  Jhostname: "teastore-webui"
+  Jport: "8080"
+  JnumUser: "50"
+  JrampUp: "300"
+  JloopCount: "100"
