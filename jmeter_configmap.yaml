@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: jmeter
-  namespace: bh-teastore 
+  namespace: teastore 
 data:
   Jhostname: "teastore-webui"
   Jport: "8080"
